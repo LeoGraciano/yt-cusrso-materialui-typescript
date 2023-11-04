@@ -1,8 +1,11 @@
-
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routers"
 export default function App() {
   return (
     <main className="App">
-      <h1>Test</h1>
+      <BrowserRouter>
+      <AppRoutes />
+      </BrowserRouter>
     </main>
   )
 }
