@@ -1,4 +1,12 @@
-import { Button, Divider, Icon, Skeleton } from "@mui/material";
+import {
+  Button,
+  Divider,
+  Icon,
+  Skeleton,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { ToolBarBase } from "../../layouts";
 
 interface IDetailToolProps {
@@ -40,20 +48,12 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
   whenClickCleanButton,
   whenClickBackButton,
 }) => {
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+
+  const noShow = !smDown && !mdDown;
   return (
     <ToolBarBase>
-      {showNewButtonLoader && <Skeleton width={110} height={60} />}
-      {showNewButton && !showNewButtonLoader && (
-        <Button
-          color="primary"
-          disableElevation
-          variant="outlined"
-          onClick={whenClickNewButton}
-          startIcon={<Icon>add</Icon>}
-        >
-          {textNewButton}
-        </Button>
-      )}
       {showSaveButtonLoader && <Skeleton width={110} height={60} />}
       {showSaveButton && !showSaveButtonLoader && (
         <Button
@@ -63,19 +63,50 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
           onClick={whenClickSaveButton}
           startIcon={<Icon>save</Icon>}
         >
-          Salvar
+          <Typography
+            variant="button"
+            whiteSpace={"nowrap"}
+            textOverflow={"ellipsis"}
+            overflow={"hidden"}
+          >
+            Salvar
+          </Typography>
         </Button>
       )}
-      {showSaveCloseButtonLoader && <Skeleton width={180} height={60} />}
-      {showSaveCloseButton && !showSaveCloseButtonLoader && (
+      {showSaveCloseButtonLoader && !smDown && !mdDown && (
+        <Skeleton width={180} height={60} />
+      )}
+      {showSaveCloseButton &&
+        !showSaveCloseButtonLoader &&
+        !smDown &&
+        !mdDown && (
+          <Button
+            color="primary"
+            disableElevation
+            variant="outlined"
+            onClick={whenClickSaveCloseButton}
+            startIcon={<Icon>save</Icon>}
+          >
+            <Typography
+              variant="button"
+              whiteSpace={"nowrap"}
+              textOverflow={"ellipsis"}
+              overflow={"hidden"}
+            >
+              Salvar e voltar
+            </Typography>
+          </Button>
+        )}
+      {showNewButtonLoader && !smDown && <Skeleton width={110} height={60} />}
+      {showNewButton && !showNewButtonLoader && !smDown && (
         <Button
           color="primary"
           disableElevation
           variant="outlined"
-          onClick={whenClickSaveCloseButton}
-          startIcon={<Icon>save</Icon>}
+          onClick={whenClickNewButton}
+          startIcon={<Icon>add</Icon>}
         >
-          Salvar e voltar
+          {textNewButton}
         </Button>
       )}
       {showCleanButtonLoader && <Skeleton width={110} height={60} />}
@@ -87,11 +118,24 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
           onClick={whenClickCleanButton}
           startIcon={<Icon>delete</Icon>}
         >
-          Limpar
+          <Typography
+            variant="button"
+            whiteSpace={"nowrap"}
+            textOverflow={"ellipsis"}
+            overflow={"hidden"}
+          >
+            Limpar
+          </Typography>
         </Button>
       )}
       {showBackButtonLoader && <Skeleton width={110} height={60} />}
-      {showBackButton && <Divider variant="middle" orientation="vertical" />}
+      {showBackButton &&
+        (showCleanButton ||
+          showNewButton ||
+          showSaveButton ||
+          showSaveCloseButton) && (
+          <Divider variant="middle" orientation="vertical" />
+        )}
       {showBackButton && !showBackButtonLoader && (
         <Button
           color="primary"
@@ -100,7 +144,14 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
           onClick={whenClickBackButton}
           startIcon={<Icon>arrow_back</Icon>}
         >
-          Voltar
+          <Typography
+            variant="button"
+            whiteSpace={"nowrap"}
+            textOverflow={"ellipsis"}
+            overflow={"hidden"}
+          >
+            Voltar
+          </Typography>
         </Button>
       )}
     </ToolBarBase>
