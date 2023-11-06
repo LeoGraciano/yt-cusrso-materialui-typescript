@@ -19,9 +19,9 @@ interface IThemeProvider {
   children: React.ReactNode;
 }
 
-export const useAppThemeContext = () => {
+export function useAppThemeContext() {
   return useContext(ThemeContext);
-};
+}
 
 export const AppThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
   const [themeName, setThemeName] = useState<"light" | "dark">("light");
@@ -46,7 +46,7 @@ export const AppThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
     >
       <ThemeProvider theme={theme}>
         <Box
-          width="1000vw"
+          width="100vw"
           height="100vh"
           bgcolor={theme.palette.background.default}
         >

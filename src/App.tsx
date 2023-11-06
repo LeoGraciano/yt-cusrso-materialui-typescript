@@ -7,13 +7,11 @@ export default function App() {
   return (
     <AppThemeProvider>
       <DrawerProvider>
-        <main className="App">
-          <BrowserRouter>
-            <SideBar>
-              <AppRoutes />
-            </SideBar>
-          </BrowserRouter>
-        </main>
+        <BrowserRouter>
+          <SideBar>
+            <AppRoutes />
+          </SideBar>
+        </BrowserRouter>
       </DrawerProvider>
     </AppThemeProvider>
   );
