@@ -8,7 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useAppDrawerContext } from "../contexts";
+import { useDrawerContext } from "../contexts";
 
 interface ILayoutBasePageProps {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ export const LayoutBasePage: React.FC<ILayoutBasePageProps> = ({
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
   const theme = useTheme();
-  const { toggleDrawerOpen } = useAppDrawerContext();
+  const { toggleDrawerOpen } = useDrawerContext();
   return (
     <Box height="100%" display="flex" flexDirection="column" gap={1}>
       <Box

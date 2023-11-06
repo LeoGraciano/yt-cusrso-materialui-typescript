@@ -12,7 +12,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useAppDrawerContext, useAppThemeContext } from "../../contexts";
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 
 interface ISideBarProps {
@@ -57,8 +57,7 @@ export const SideBar: React.FC<ISideBarProps> = ({ children }) => {
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
   const { toggleTheme } = useAppThemeContext();
 
-  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } =
-    useAppDrawerContext();
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
 
   return (
     <>

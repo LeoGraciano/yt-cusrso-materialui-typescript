@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useAppDrawerContext } from "../shared/contexts";
+import { useDrawerContext } from "../shared/contexts";
 import { useEffect } from "react";
 import Dashboard from "../pages/dashboard/Dashboard";
 
 export default function AppRoutes() {
-  const { setDrawerOptions } = useAppDrawerContext();
+  const { setDrawerOptions } = useDrawerContext();
 
   useEffect(() => {
     setDrawerOptions([
@@ -19,7 +19,7 @@ export default function AppRoutes() {
         path: "/despesas",
       },
     ]);
-  });
+  }, []);
 
   return (
     <Routes>

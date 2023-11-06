@@ -1,4 +1,5 @@
-import { Box, Button, Icon, Paper, TextField, useTheme } from "@mui/material";
+import { Box, Button, Icon, TextField } from "@mui/material";
+import { ToolBarBase } from "../../layouts";
 
 interface IListToolProps {
   textSearch?: string;
@@ -17,18 +18,8 @@ export const ListTool: React.FC<IListToolProps> = ({
   showNewBottom = true,
   whenClickNewBottom,
 }) => {
-  const theme = useTheme();
   return (
-    <Box
-      display="flex"
-      gap={1}
-      alignItems="center"
-      marginX={1}
-      padding={1}
-      paddingX={2}
-      height={theme.spacing(5)}
-      component={Paper}
-    >
+    <ToolBarBase>
       {showInputSearch && (
         <TextField
           size="small"
@@ -49,6 +40,6 @@ export const ListTool: React.FC<IListToolProps> = ({
           </Button>
         )}
       </Box>
-    </Box>
+    </ToolBarBase>
   );
 };
