@@ -2,9 +2,29 @@
   "accounts": [
     {
       "id": "5f8a5004-d579-452e-b408-75ab7884af75",
+      "uuid": "5f8a5004-d579-452e-b408-75ab7884af75",
       "email": "admin@example.com",
       "name": "Admin Teste Server",
       "password": "<PASSWORD>"
+    }
+  ],
+  "categories": [
+    {
+      "id": "90b6f695-7e35-4af8-b68e-f3d5b6c58657",
+      "uuid": "90b6f695-7e35-4af8-b68e-f3d5b6c58657",
+      "name": "Limpeza"
+    }
+  ],
+  "expenditure": [
+    {
+      "id": "947ea7c5-a471-4e99-8cd1-de929925efc7",
+      "uuid": "947ea7c5-a471-4e99-8cd1-de929925efc7",
+      "description": "Produto 1",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "2023-11-06",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
     }
   ]
 }

@@ -13,13 +13,13 @@ import { useDrawerContext } from "../contexts";
 interface ILayoutBasePageProps {
   children: React.ReactNode;
   title: string;
-  toolKitBar?: React.ReactNode;
+  toolkit?: React.ReactNode;
 }
 
 export const LayoutBasePage: React.FC<ILayoutBasePageProps> = ({
   children,
   title,
-  toolKitBar,
+  toolkit,
 }) => {
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
@@ -49,7 +49,7 @@ export const LayoutBasePage: React.FC<ILayoutBasePageProps> = ({
           {title}
         </Typography>
       </Box>
-      {toolKitBar && <Box>{toolKitBar}</Box>}
+      {toolkit && <Box>{toolkit}</Box>}
       <Box flex={1} overflow="auto">
         {children}
       </Box>

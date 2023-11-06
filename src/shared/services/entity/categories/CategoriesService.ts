@@ -1,29 +1,25 @@
 import { Environment } from "../../../environment";
 import { Api } from "../../api";
 
-const urlPath = "/accounts/";
+const urlPath = "/categories/";
 
-interface IAccountList {
+interface ICategoriesList {
   id: string;
   uuid: string;
   name: string;
-  email: string;
 }
-interface IAccountDetail {
+interface ICategoryDetail {
   id: string;
   uuid: string;
   name: string;
-  email: string;
 }
 
-interface IAccountCreate {
+interface ICategoryCreate {
   name: string;
-  email: string;
-  password: string;
 }
 
-type TAccountsCount = {
-  data: IAccountList[];
+type TCategoriesCount = {
+  data: ICategoriesList[];
   count: number;
 };
 
@@ -31,13 +27,12 @@ const getAll = async (
   page = 1,
   filter: string = "",
   rows = Environment.LIMIT_ROWS
-): Promise<TAccountsCount | Error> => {
+): Promise<TCategoriesCount | Error> => {
   try {
     let urlRelative = urlPath + `?{page=${page}}&limit=${rows}`;
     if (filter) {
       urlRelative += `&name_like=${filter}`;
     }
-
     const { data, headers } = await Api.get(urlRelative);
     if (data)
       return {
@@ -52,7 +47,7 @@ const getAll = async (
     );
   }
 };
-const getById = async (id: string): Promise<IAccountDetail | Error> => {
+const getById = async (id: string): Promise<ICategoryDetail | Error> => {
   try {
     const urlRelative = urlPath + id;
     const { data } = await Api.get(urlRelative);
@@ -65,11 +60,11 @@ const getById = async (id: string): Promise<IAccountDetail | Error> => {
     );
   }
 };
-const create = async (data: IAccountCreate): Promise<string | Error> => {
+const create = async (data: ICategoryCreate): Promise<string | Error> => {
   try {
     const urlRelative = urlPath;
-    const response = await Api.post<IAccountDetail>(urlRelative, data);
-    if (response.data) return response.data.id;
+    const response = await Api.post<ICategoryDetail>(urlRelative, data);
+    if (response.data) return response.data.uuid;
     return new Error("Error ao atualizar registar");
   } catch (error) {
     console.error(error);
@@ -80,11 +75,11 @@ const create = async (data: IAccountCreate): Promise<string | Error> => {
 };
 const updateById = async (
   id: string,
-  data: Omit<IAccountDetail, "id">
-): Promise<IAccountDetail | Error> => {
+  data: Omit<ICategoryDetail, "id">
+): Promise<ICategoryDetail | Error> => {
   try {
     const urlRelative = urlPath + `${id}/`;
-    const response = await Api.put<IAccountDetail>(urlRelative, data);
+    const response = await Api.put<ICategoryDetail>(urlRelative, data);
     if (response.data) return response.data;
     return new Error("Error ao apagar registar");
   } catch (error) {
@@ -107,7 +102,7 @@ const deleteById = async (id: string): Promise<number | Error> => {
   }
 };
 
-export const AccountService = {
+export const CategoriesService = {
   getAll,
   getById,
   create,
