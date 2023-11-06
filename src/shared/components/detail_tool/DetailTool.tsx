@@ -13,19 +13,19 @@ interface IDetailToolProps {
   textNewButton?: string;
   showNewButton?: boolean;
   showSaveButton?: boolean;
-  showSaveCloseButton?: boolean;
+  showSaveCloserButton?: boolean;
   showCleanButton?: boolean;
   showBackButton?: boolean;
 
   showNewButtonLoader?: boolean;
   showSaveButtonLoader?: boolean;
-  showSaveCloseButtonLoader?: boolean;
+  showSaveCloserButtonLoader?: boolean;
   showCleanButtonLoader?: boolean;
   showBackButtonLoader?: boolean;
 
   whenClickNewButton?: () => void;
   whenClickSaveButton?: () => void;
-  whenClickSaveCloseButton?: () => void;
+  whenClickSaveCloserButton?: () => void;
   whenClickCleanButton?: () => void;
   whenClickBackButton?: () => void;
 }
@@ -34,17 +34,17 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
   textNewButton = "Novo",
   showNewButton = true,
   showSaveButton = true,
-  showSaveCloseButton = false,
+  showSaveCloserButton = false,
   showCleanButton = true,
   showBackButton = true,
   showNewButtonLoader = false,
   showSaveButtonLoader = false,
-  showSaveCloseButtonLoader = false,
+  showSaveCloserButtonLoader = false,
   showCleanButtonLoader = false,
   showBackButtonLoader = false,
   whenClickNewButton,
   whenClickSaveButton,
-  whenClickSaveCloseButton,
+  whenClickSaveCloserButton,
   whenClickCleanButton,
   whenClickBackButton,
 }) => {
@@ -72,18 +72,18 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
           </Typography>
         </Button>
       )}
-      {showSaveCloseButtonLoader && !smDown && !mdDown && (
+      {showSaveCloserButtonLoader && !smDown && !mdDown && (
         <Skeleton width={180} height={60} />
       )}
-      {showSaveCloseButton &&
-        !showSaveCloseButtonLoader &&
+      {showSaveCloserButton &&
+        !showSaveCloserButtonLoader &&
         !smDown &&
         !mdDown && (
           <Button
             color="primary"
             disableElevation
             variant="outlined"
-            onClick={whenClickSaveCloseButton}
+            onClick={whenClickSaveCloserButton}
             startIcon={<Icon>save</Icon>}
           >
             <Typography
@@ -132,7 +132,7 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
         (showCleanButton ||
           showNewButton ||
           showSaveButton ||
-          showSaveCloseButton) && (
+          showSaveCloserButton) && (
           <Divider variant="middle" orientation="vertical" />
         )}
       {showBackButton && !showBackButtonLoader && (
