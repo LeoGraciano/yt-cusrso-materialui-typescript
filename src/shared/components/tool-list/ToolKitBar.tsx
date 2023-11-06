@@ -1,6 +1,6 @@
 import { Box, Button, Icon, Paper, TextField, useTheme } from "@mui/material";
 
-interface IToolKitBarProps {
+interface IListToolProps {
   textSearch?: string;
   showInputSearch?: boolean;
   whenChangeTextSearch?: (newText: string) => void;
@@ -9,7 +9,7 @@ interface IToolKitBarProps {
   whenClickNewBottom?: () => void;
 }
 
-export const ToolKitBar: React.FC<IToolKitBarProps> = ({
+export const ListTool: React.FC<IListToolProps> = ({
   textSearch = "",
   showInputSearch = false,
   whenChangeTextSearch,
