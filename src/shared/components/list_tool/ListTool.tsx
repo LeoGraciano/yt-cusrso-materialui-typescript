@@ -1,5 +1,6 @@
 import { Box, Button, Icon, TextField } from "@mui/material";
 import { ToolBarBase } from "../../layouts";
+import { Environment } from "../../environment";
 
 interface IListToolProps {
   textSearch?: string;
@@ -23,7 +24,7 @@ export const ListTool: React.FC<IListToolProps> = ({
       {showInputSearch && (
         <TextField
           size="small"
-          placeholder={"Pesquisar..."}
+          placeholder={Environment.INPUT_SEARCH}
           value={textSearch}
           onChange={(e) => whenChangeTextSearch?.(e.target.value)}
         />
