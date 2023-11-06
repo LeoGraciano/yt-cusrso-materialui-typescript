@@ -51,7 +51,6 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
-  const noShow = !smDown && !mdDown;
   return (
     <ToolBarBase>
       {showSaveButtonLoader && <Skeleton width={110} height={60} />}

@@ -1,0 +1,10 @@
+{
+  "accounts": [
+    {
+      "id": "5f8a5004-d579-452e-b408-75ab7884af75",
+      "email": "admin@example.com",
+      "name": "Admin Teste Server",
+      "password": "<PASSWORD>"
+    }
+  ]
+}
