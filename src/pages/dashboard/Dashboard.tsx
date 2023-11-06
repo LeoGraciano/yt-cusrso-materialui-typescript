@@ -5,7 +5,7 @@ export default function Dashboard() {
   return (
     <LayoutBasePage
       title="Pagina Inicial"
-      toolKitBar={<DetailTool showSaveCloseBottom />}
+      toolKitBar={<DetailTool showSaveCloseButton />}
     >
       Testando
     </LayoutBasePage>

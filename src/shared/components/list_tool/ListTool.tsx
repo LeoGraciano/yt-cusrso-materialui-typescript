@@ -5,18 +5,18 @@ interface IListToolProps {
   textSearch?: string;
   showInputSearch?: boolean;
   whenChangeTextSearch?: (newText: string) => void;
-  textNewBottom?: string;
-  showNewBottom?: boolean;
-  whenClickNewBottom?: () => void;
+  textNewButton?: string;
+  showNewButton?: boolean;
+  whenClickNewButton?: () => void;
 }
 
 export const ListTool: React.FC<IListToolProps> = ({
   textSearch = "",
   showInputSearch = false,
   whenChangeTextSearch,
-  textNewBottom = "Novo",
-  showNewBottom = true,
-  whenClickNewBottom,
+  textNewButton = "Novo",
+  showNewButton = true,
+  whenClickNewButton,
 }) => {
   return (
     <ToolBarBase>
@@ -29,14 +29,14 @@ export const ListTool: React.FC<IListToolProps> = ({
         />
       )}
       <Box flex={1} display="flex" justifyContent="end">
-        {showNewBottom && (
+        {showNewButton && (
           <Button
             color="primary"
             disableElevation
             variant="contained"
             endIcon={<Icon>add</Icon>}
           >
-            {textNewBottom}
+            {textNewButton}
           </Button>
         )}
       </Box>

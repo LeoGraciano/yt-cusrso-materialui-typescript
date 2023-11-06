@@ -2,102 +2,102 @@ import { Button, Divider, Icon, Skeleton } from "@mui/material";
 import { ToolBarBase } from "../../layouts";
 
 interface IDetailToolProps {
-  textNewBottom?: string;
-  showNewBottom?: boolean;
-  showSaveBottom?: boolean;
-  showSaveCloseBottom?: boolean;
-  showCleanBottom?: boolean;
-  showBackBottom?: boolean;
+  textNewButton?: string;
+  showNewButton?: boolean;
+  showSaveButton?: boolean;
+  showSaveCloseButton?: boolean;
+  showCleanButton?: boolean;
+  showBackButton?: boolean;
 
-  showNewBottomLoader?: boolean;
-  showSaveBottomLoader?: boolean;
-  showSaveCloseBottomLoader?: boolean;
-  showCleanBottomLoader?: boolean;
-  showBackBottomLoader?: boolean;
+  showNewButtonLoader?: boolean;
+  showSaveButtonLoader?: boolean;
+  showSaveCloseButtonLoader?: boolean;
+  showCleanButtonLoader?: boolean;
+  showBackButtonLoader?: boolean;
 
-  whenClickNewBottom?: () => void;
-  whenClickSaveBottom?: () => void;
-  whenClickSaveCloseBottom?: () => void;
-  whenClickCleanBottom?: () => void;
-  whenClickBackBottom?: () => void;
+  whenClickNewButton?: () => void;
+  whenClickSaveButton?: () => void;
+  whenClickSaveCloseButton?: () => void;
+  whenClickCleanButton?: () => void;
+  whenClickBackButton?: () => void;
 }
 
 export const DetailTool: React.FC<IDetailToolProps> = ({
-  textNewBottom = "Novo",
-  showNewBottom = true,
-  showSaveBottom = true,
-  showSaveCloseBottom = false,
-  showCleanBottom = true,
-  showBackBottom = true,
-  showNewBottomLoader = false,
-  showSaveBottomLoader = false,
-  showSaveCloseBottomLoader = false,
-  showCleanBottomLoader = false,
-  showBackBottomLoader = false,
-  whenClickNewBottom,
-  whenClickSaveBottom,
-  whenClickSaveCloseBottom,
-  whenClickCleanBottom,
-  whenClickBackBottom,
+  textNewButton = "Novo",
+  showNewButton = true,
+  showSaveButton = true,
+  showSaveCloseButton = false,
+  showCleanButton = true,
+  showBackButton = true,
+  showNewButtonLoader = false,
+  showSaveButtonLoader = false,
+  showSaveCloseButtonLoader = false,
+  showCleanButtonLoader = false,
+  showBackButtonLoader = false,
+  whenClickNewButton,
+  whenClickSaveButton,
+  whenClickSaveCloseButton,
+  whenClickCleanButton,
+  whenClickBackButton,
 }) => {
   return (
     <ToolBarBase>
-      {showNewBottomLoader && <Skeleton width={110} height={60} />}
-      {showNewBottom && !showNewBottomLoader && (
+      {showNewButtonLoader && <Skeleton width={110} height={60} />}
+      {showNewButton && !showNewButtonLoader && (
         <Button
           color="primary"
           disableElevation
           variant="outlined"
-          onClick={whenClickNewBottom}
+          onClick={whenClickNewButton}
           startIcon={<Icon>add</Icon>}
         >
-          {textNewBottom}
+          {textNewButton}
         </Button>
       )}
-      {showSaveBottomLoader && <Skeleton width={110} height={60} />}
-      {showSaveBottom && !showSaveBottomLoader && (
+      {showSaveButtonLoader && <Skeleton width={110} height={60} />}
+      {showSaveButton && !showSaveButtonLoader && (
         <Button
           color="primary"
           disableElevation
           variant="contained"
-          onClick={whenClickSaveBottom}
+          onClick={whenClickSaveButton}
           startIcon={<Icon>save</Icon>}
         >
           Salvar
         </Button>
       )}
-      {showSaveCloseBottomLoader && <Skeleton width={180} height={60} />}
-      {showSaveCloseBottom && !showSaveCloseBottomLoader && (
+      {showSaveCloseButtonLoader && <Skeleton width={180} height={60} />}
+      {showSaveCloseButton && !showSaveCloseButtonLoader && (
         <Button
           color="primary"
           disableElevation
           variant="outlined"
-          onClick={whenClickSaveCloseBottom}
+          onClick={whenClickSaveCloseButton}
           startIcon={<Icon>save</Icon>}
         >
           Salvar e voltar
         </Button>
       )}
-      {showCleanBottomLoader && <Skeleton width={110} height={60} />}
-      {showCleanBottom && !showCleanBottomLoader && (
+      {showCleanButtonLoader && <Skeleton width={110} height={60} />}
+      {showCleanButton && !showCleanButtonLoader && (
         <Button
           color="primary"
           disableElevation
           variant="outlined"
-          onClick={whenClickCleanBottom}
+          onClick={whenClickCleanButton}
           startIcon={<Icon>delete</Icon>}
         >
           Limpar
         </Button>
       )}
-      {showBackBottomLoader && <Skeleton width={110} height={60} />}
-      {showBackBottom && <Divider variant="middle" orientation="vertical" />}
-      {showBackBottom && !showBackBottomLoader && (
+      {showBackButtonLoader && <Skeleton width={110} height={60} />}
+      {showBackButton && <Divider variant="middle" orientation="vertical" />}
+      {showBackButton && !showBackButtonLoader && (
         <Button
           color="primary"
           disableElevation
           variant="outlined"
-          onClick={whenClickBackBottom}
+          onClick={whenClickBackButton}
           startIcon={<Icon>arrow_back</Icon>}
         >
           Voltar
