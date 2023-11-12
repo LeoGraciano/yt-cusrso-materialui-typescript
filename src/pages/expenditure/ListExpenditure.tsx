@@ -97,6 +97,7 @@ export const ListExpenditure: React.FC = () => {
       toolkit={
         <ListTool
           textNewButton="Nova"
+          whenClickNewButton={`${EXPENDITURE_EDIT}nova`}
           selectFields={selectFields}
           showInputSearch
           selectSearch={searchField}

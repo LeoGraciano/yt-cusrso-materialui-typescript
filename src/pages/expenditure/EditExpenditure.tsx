@@ -1,6 +1,10 @@
 import React from "react";
 import { LayoutBasePage } from "../../shared/layouts";
 
-export const EditExpenditure: React.FC = () => {
+interface IEditExpenditureProps {
+  title: string;
+}
+
+export const EditExpenditure: React.FC<IEditExpenditureProps> = () => {
   return <LayoutBasePage title="Editar">Teste</LayoutBasePage>;
 };

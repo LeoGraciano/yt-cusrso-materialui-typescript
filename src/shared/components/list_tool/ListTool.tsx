@@ -1,5 +1,6 @@
 import { Box, Button, Icon } from "@mui/material";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FilterField } from "..";
 import { ToolBarBase } from "../../layouts";
 
@@ -55,15 +56,16 @@ export const ListTool: React.FC<IListToolProps> = ({
       )}
       <Box flex={1} display="flex" justifyContent="end">
         {showNewButton && (
-          <Button
-            color="primary"
-            disableElevation
-            variant="contained"
-            endIcon={<Icon>add</Icon>}
-            onClick={whenClickNewButton}
-          >
-            {textNewButton}
-          </Button>
+          <Link to={whenClickNewButton}>
+            <Button
+              color="primary"
+              disableElevation
+              variant="contained"
+              endIcon={<Icon>add</Icon>}
+            >
+              {textNewButton}
+            </Button>
+          </Link>
         )}
       </Box>
     </ToolBarBase>
