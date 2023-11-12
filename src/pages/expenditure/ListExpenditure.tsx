@@ -28,7 +28,9 @@ export const ListExpenditure: React.FC = () => {
       if (result instanceof Error) {
         alert(result.message);
       } else {
-        setRows(result.data);
+        setRows((oldRows) => {
+          return [...oldRows.filter((oldRow) => oldRow.id !== id)];
+        });
       }
     });
   };
