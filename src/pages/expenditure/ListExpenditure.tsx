@@ -2,6 +2,7 @@ import { Box, Icon, IconButton } from "@mui/material";
 import { GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { EXPENDITURE_EDIT, EXPENDITURE_ENDPOINT } from "../../routers";
 import { AppTable, ListTool } from "../../shared/components";
 import { useDebounce } from "../../shared/hooks";
 import { LayoutBasePage } from "../../shared/layouts";
@@ -16,14 +17,26 @@ export const ListExpenditure: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectFields, setSelectFields] = useState([]);
 
+  const urlRerlative = EXPENDITURE_ENDPOINT;
+
   const search = useMemo(() => {
-    return searchParams.get(`busca`) || "";
-  }, [searchParams]);
+    return searchParams.get(searchField) || "";
+  }, [searchParams, searchField]);
+
+  const handleDelete = (id: string) => {
+    AppCRUD.deleteById(urlRerlative, id).then((result) => {
+      if (result instanceof Error) {
+        alert(result.message);
+      } else {
+        setRows(result.data);
+      }
+    });
+  };
 
   useEffect(() => {
     setIsLoading(true);
     debounce(() => {
-      AppCRUD.getAll("/expenditure/", searchField, search).then((result) => {
+      AppCRUD.getAll(urlRerlative, searchField, search).then((result) => {
         setIsLoading(false);
         const dataColumns: GridColDef[] = [
           { field: "description", headerName: "Descrição", flex: 1 },
@@ -41,12 +54,12 @@ export const ListExpenditure: React.FC = () => {
             width: 120,
             renderCell: (params) => (
               <Box>
-                <Link to={`/detalhes/${params.row.id}`}>
+                <Link to={`${EXPENDITURE_EDIT}${params.row.id}`}>
                   <IconButton color="info">
                     <Icon>edit</Icon>
                   </IconButton>
                 </Link>
-                <IconButton color="info">
+                <IconButton color="error" onClick={() => handleDelete}>
                   <Icon>delete</Icon>
                 </IconButton>
               </Box>
@@ -84,7 +97,7 @@ export const ListExpenditure: React.FC = () => {
           whenChangeSelectSearch={setSearchField}
           textSearch={search}
           whenChangeTextSearch={(search) =>
-            setSearchParams({ busca: search }, { replace: true })
+            setSearchParams({ [searchField]: search }, { replace: true })
           }
         />
       }

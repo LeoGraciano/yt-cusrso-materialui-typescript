@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { ListCategories, ListExpenditure } from "../pages";
+import { EditExpenditure, ListCategories, ListExpenditure } from "../pages";
 import Dashboard from "../pages/dashboard/Dashboard";
 import { useDrawerContext } from "../shared/contexts";
 
@@ -38,9 +38,9 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path={`${HOME}`} element={<Dashboard />} />
-      <Route path="/despesas" element={<ListExpenditure />} />
-      <Route path={`${EXPENDITURE_EDIT}:uuid`} element={<ListExpenditure />} />
-      <Route path="/categorias" element={<ListCategories />} />
+      <Route path={EXPENDITURE} element={<ListExpenditure />} />
+      <Route path={`${EXPENDITURE_EDIT}:uuid`} element={<EditExpenditure />} />
+      <Route path={CATEGORIES} element={<ListCategories />} />
       <Route path={`${CATEGORIES_EDIT}:uuid`} element={<ListCategories />} />
       <Route path="*" element={<Navigate to={`${HOME}`} />} />
     </Routes>
