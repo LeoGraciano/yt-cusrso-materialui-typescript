@@ -17,14 +17,14 @@ export const ListExpenditure: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectFields, setSelectFields] = useState([]);
 
-  const urlRerlative = EXPENDITURE_ENDPOINT;
+  const urlRelative = EXPENDITURE_ENDPOINT;
 
   const search = useMemo(() => {
     return searchParams.get(searchField) || "";
   }, [searchParams, searchField]);
 
   const handleDelete = (id: string) => {
-    AppCRUD.deleteById(urlRerlative, id).then((result) => {
+    AppCRUD.deleteById(urlRelative, id).then((result) => {
       if (result instanceof Error) {
         alert(result.message);
       } else {
@@ -36,7 +36,7 @@ export const ListExpenditure: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
     debounce(() => {
-      AppCRUD.getAll(urlRerlative, searchField, search).then((result) => {
+      AppCRUD.getAll(urlRelative, searchField, search).then((result) => {
         setIsLoading(false);
         const dataColumns: GridColDef[] = [
           { field: "description", headerName: "Descrição", flex: 1 },
@@ -55,11 +55,15 @@ export const ListExpenditure: React.FC = () => {
             renderCell: (params) => (
               <Box>
                 <Link to={`${EXPENDITURE_EDIT}${params.row.id}`}>
-                  <IconButton color="info">
+                  <IconButton color="info" size="small">
                     <Icon>edit</Icon>
                   </IconButton>
                 </Link>
-                <IconButton color="error" onClick={() => handleDelete}>
+                <IconButton
+                  color="error"
+                  onClick={() => handleDelete(params.row.id)}
+                  size="small"
+                >
                   <Icon>delete</Icon>
                 </IconButton>
               </Box>
