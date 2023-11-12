@@ -1,8 +1,16 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { useDrawerContext } from "../shared/contexts";
 import { useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { ListCategories, ListExpenditure } from "../pages";
 import Dashboard from "../pages/dashboard/Dashboard";
-import { ListCategories } from "../pages";
+import { useDrawerContext } from "../shared/contexts";
+
+export const HOME = "/home/";
+export const EXPENDITURE = "/despesas/";
+export const EXPENDITURE_EDIT = "/despesas/detalhe/";
+export const EXPENDITURE_ENDPOINT = "/expenditure/";
+export const CATEGORIES = "/categorias/";
+export const CATEGORIES_EDIT = "/categorias/detalhe/";
+export const CATEGORIES_ENDPOINT = "/categories/";
 
 export default function AppRoutes() {
   const { setDrawerOptions } = useDrawerContext();
@@ -12,27 +20,29 @@ export default function AppRoutes() {
       {
         icon: "home",
         label: "Home",
-        path: "/home",
+        path: HOME,
       },
       {
         icon: "paid",
         label: "Despesas",
-        path: "/despesas",
+        path: EXPENDITURE,
       },
       {
         icon: "list",
         label: "Categorias",
-        path: "/categorias",
+        path: CATEGORIES,
       },
     ]);
   }, []);
 
   return (
     <Routes>
-      <Route path="/home" element={<Dashboard />} />
+      <Route path={`${HOME}`} element={<Dashboard />} />
+      <Route path="/despesas" element={<ListExpenditure />} />
+      <Route path={`${EXPENDITURE_EDIT}:uuid`} element={<ListExpenditure />} />
       <Route path="/categorias" element={<ListCategories />} />
-      <Route path="/categorias/detalhe/:uuid" element={<ListCategories />} />
-      <Route path="*" element={<Navigate to="/home" />} />
+      <Route path={`${CATEGORIES_EDIT}:uuid`} element={<ListCategories />} />
+      <Route path="*" element={<Navigate to={`${HOME}`} />} />
     </Routes>
   );
 }

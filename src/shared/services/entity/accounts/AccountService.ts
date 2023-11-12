@@ -24,7 +24,7 @@ interface IAccountCreate {
 
 type TAccountsCount = {
   data: IAccountList[];
-  count: number;
+  totalCount: number;
 };
 
 const getAll = async (
@@ -33,7 +33,7 @@ const getAll = async (
   rows = Environment.LIMIT_ROWS
 ): Promise<TAccountsCount | Error> => {
   try {
-    let urlRelative = urlPath + `?{page=${page}}&limit=${rows}`;
+    let urlRelative = urlPath + `?{_page=${page}}&_limit=${rows}`;
     if (filter) {
       urlRelative += `&name_like=${filter}`;
     }
@@ -42,7 +42,7 @@ const getAll = async (
     if (data)
       return {
         data,
-        count: data.length,
+        totalCount: Number(headers["x-total-count"] || Environment.LIMIT_ROWS),
       };
     return new Error("Error ao lista registros");
   } catch (error) {

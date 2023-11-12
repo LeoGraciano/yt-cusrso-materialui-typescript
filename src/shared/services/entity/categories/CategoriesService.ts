@@ -3,15 +3,15 @@ import { Api } from "../../api";
 
 const urlPath = "/categories/";
 
-interface ICategoriesList {
-  id: string;
-  uuid: string;
-  name: string;
+export interface ICategoriesList {
+  id?: string;
+  uuid?: string;
+  name?: string;
 }
-interface ICategoryDetail {
-  id: string;
-  uuid: string;
-  name: string;
+export interface ICategoryDetail {
+  id?: string;
+  uuid?: string;
+  name?: string;
 }
 
 interface ICategoryCreate {
@@ -20,16 +20,15 @@ interface ICategoryCreate {
 
 type TCategoriesCount = {
   data: ICategoriesList[];
-  count: number;
+  totalCount: number;
 };
 
 const getAll = async (
   page = 1,
-  filter: string = "",
-  rows = Environment.LIMIT_ROWS
+  filter: string = ""
 ): Promise<TCategoriesCount | Error> => {
   try {
-    let urlRelative = urlPath + `?{page=${page}}&limit=${rows}`;
+    let urlRelative = urlPath + `?{_page=${page}}`;
     if (filter) {
       urlRelative += `&name_like=${filter}`;
     }
@@ -37,7 +36,7 @@ const getAll = async (
     if (data)
       return {
         data,
-        count: data.length,
+        totalCount: Number(headers["x-total-count"] || Environment.LIMIT_ROWS),
       };
     return new Error("Error ao lista registros");
   } catch (error) {

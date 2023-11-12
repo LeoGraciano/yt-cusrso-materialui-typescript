@@ -17,12 +17,162 @@
   ],
   "expenditure": [
     {
-      "id": "947ea7c5-a471-4e99-8cd1-de929925efc7",
-      "uuid": "947ea7c5-a471-4e99-8cd1-de929925efc7",
+      "id": "758f7215-6ca2-421c-bd63-2f47b05548fe",
+      "uuid": "758f7215-6ca2-421c-bd63-2f47b05548fe",
       "description": "Produto 1",
       "value": 50,
       "date": "2023-01-23",
-      "created_by": "2023-11-06",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "0aa2ab4b-b1cf-4822-b8cb-1a0a6d20772d",
+      "uuid": "0aa2ab4b-b1cf-4822-b8cb-1a0a6d20772d",
+      "description": "Produto 2",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "3979eac5-4944-43c3-ad28-99f5b046a1ff",
+      "uuid": "3979eac5-4944-43c3-ad28-99f5b046a1ff",
+      "description": "Produto 3",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "95af3e13-3e36-43fe-aad1-ce01a24f1772",
+      "uuid": "95af3e13-3e36-43fe-aad1-ce01a24f1772",
+      "description": "Produto 4",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "fbbab8ce-9adc-4234-b3c5-046deb71b3ea",
+      "uuid": "fbbab8ce-9adc-4234-b3c5-046deb71b3ea",
+      "description": "Produto 5",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "222128e6-e2f6-4401-a661-06460dd40968",
+      "uuid": "222128e6-e2f6-4401-a661-06460dd40968",
+      "description": "Produto 6",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "248e3839-05a1-4ae9-bc84-1e20b0a7f53c",
+      "uuid": "248e3839-05a1-4ae9-bc84-1e20b0a7f53c",
+      "description": "Produto 7",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "292d6ba2-4ce8-496a-b326-496f0d885e6c",
+      "uuid": "292d6ba2-4ce8-496a-b326-496f0d885e6c",
+      "description": "Produto 8",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "32518413-abf7-4c6a-b938-2fd82b2dbbd3",
+      "uuid": "32518413-abf7-4c6a-b938-2fd82b2dbbd3",
+      "description": "Produto 9",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "358a2ad1-83ea-4c4f-b7de-a2894a70597b",
+      "uuid": "358a2ad1-83ea-4c4f-b7de-a2894a70597b",
+      "description": "Produto 10",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "59a75061-2974-430b-893f-afa4fd147906",
+      "uuid": "59a75061-2974-430b-893f-afa4fd147906",
+      "description": "Produto 11",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "66773ccf-5fdb-416a-a38f-2be686fdcca6",
+      "uuid": "66773ccf-5fdb-416a-a38f-2be686fdcca6",
+      "description": "Produto 12",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "cecbf929-d9c7-41be-a95d-476286f600fe",
+      "uuid": "cecbf929-d9c7-41be-a95d-476286f600fe",
+      "description": "Produto 13",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "26ad40eb-83b1-477a-b3c0-9c2b961f6de0",
+      "uuid": "26ad40eb-83b1-477a-b3c0-9c2b961f6de0",
+      "description": "Produto 14",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "b521cb62-c131-4a48-82ed-b015fac2adb6",
+      "uuid": "b521cb62-c131-4a48-82ed-b015fac2adb6",
+      "description": "Produto 15",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
+      "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
+      "categories_display": ["Limpeza"]
+    },
+    {
+      "id": "709b6e0a-1087-458f-931f-85f13098f5d8",
+      "uuid": "709b6e0a-1087-458f-931f-85f13098f5d8",
+      "description": "Produto 16",
+      "value": 50,
+      "date": "2023-01-23",
+      "created_by": "Léo",
       "categories": ["90b6f695-7e35-4af8-b68e-f3d5b6c58657"],
       "categories_display": ["Limpeza"]
     }

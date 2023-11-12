@@ -32,24 +32,24 @@ interface IExpenseCreate {
 
 type TExpenditureCount = {
   data: IExpenditureList[];
-  count: number;
+  totalCount: number;
 };
 
 const getAll = async (
   page = 1,
-  filter: string = "",
-  rows = Environment.LIMIT_ROWS
+  field: string,
+  filter: string
 ): Promise<TExpenditureCount | Error> => {
   try {
-    let urlRelative = urlPath + `?{page=${page}}&limit=${rows}`;
-    if (filter) {
-      urlRelative += `&description_like=${filter}`;
+    let urlRelative = urlPath + `?{_page=${page}}`;
+    if (field && filter) {
+      urlRelative += `&${field}_like=${filter}`;
     }
     const { data, headers } = await Api.get(urlRelative);
     if (data)
       return {
         data,
-        count: data.length,
+        totalCount: Number(headers["x-total-count"] || Environment.LIMIT_ROWS),
       };
     return new Error("Error ao lista registros");
   } catch (error) {

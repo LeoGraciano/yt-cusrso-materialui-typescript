@@ -1,10 +1,19 @@
-import { Box, Button, Icon, TextField } from "@mui/material";
+import { Box, Button, Icon } from "@mui/material";
+import { useState } from "react";
+import { FilterField } from "..";
 import { ToolBarBase } from "../../layouts";
-import { Environment } from "../../environment";
+
+interface ISelectFieldProps {
+  field: string;
+  headerName: string;
+}
 
 interface IListToolProps {
+  selectFields?: ISelectFieldProps[];
+  selectSearch?: string;
   textSearch?: string;
   showInputSearch?: boolean;
+  whenChangeSelectSearch?: (newText: string) => void;
   whenChangeTextSearch?: (newText: string) => void;
   textNewButton?: string;
   showNewButton?: boolean;
@@ -12,21 +21,36 @@ interface IListToolProps {
 }
 
 export const ListTool: React.FC<IListToolProps> = ({
+  selectFields = [],
+  selectSearch = "",
   textSearch = "",
   showInputSearch = false,
+  whenChangeSelectSearch,
   whenChangeTextSearch,
   textNewButton = "Novo",
   showNewButton = true,
   whenClickNewButton,
 }) => {
+  const [selectField, setSelectField] = useState(selectSearch);
+
+  const handleFieldChange = (selectedField: string) => {
+    setSelectField(selectedField);
+    whenChangeSelectSearch?.(selectedField);
+  };
+
+  const handleTextSearchChange = (searchText: string) => {
+    whenChangeTextSearch?.(searchText);
+  };
+
   return (
     <ToolBarBase>
       {showInputSearch && (
-        <TextField
-          size="small"
-          placeholder={Environment.INPUT_SEARCH}
-          value={textSearch}
-          onChange={(e) => whenChangeTextSearch?.(e.target.value)}
+        <FilterField
+          selectFields={selectFields}
+          selectSearch={selectField}
+          textSearch={textSearch}
+          onFieldChange={handleFieldChange}
+          onTextSearchChange={handleTextSearchChange}
         />
       )}
       <Box flex={1} display="flex" justifyContent="end">
@@ -36,6 +60,7 @@ export const ListTool: React.FC<IListToolProps> = ({
             disableElevation
             variant="contained"
             endIcon={<Icon>add</Icon>}
+            onClick={whenClickNewButton}
           >
             {textNewButton}
           </Button>
