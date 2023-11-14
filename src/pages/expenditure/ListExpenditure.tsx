@@ -10,7 +10,7 @@ import { AppCRUD } from "../../shared/services/crud/AppCrud";
 
 export const ListExpenditure: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchField, setSearchField] = useState();
+  const [searchField, setSearchField] = useState("");
   const { debounce } = useDebounce();
   const [rows, setRows] = useState<GridRowsProp>([]);
   const [columns, setColumns] = useState<GridColDef[]>([]);
@@ -37,6 +37,7 @@ export const ListExpenditure: React.FC = () => {
 
   useEffect(() => {
     setIsLoading(true);
+
     debounce(() => {
       AppCRUD.getAll(urlRelative, searchField, search).then((result) => {
         setIsLoading(false);

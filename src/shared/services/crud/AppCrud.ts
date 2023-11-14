@@ -14,13 +14,13 @@ export const getAll = async (
   path: string,
   field: string,
   filter: string = ""
-): Promise<{ data: unknown; totalCount: number } | Error> => {
+): Promise<{ data: never; totalCount: number } | Error> => {
   try {
     let urlRelative = path;
     if (field && filter !== "") {
       urlRelative += `?${field}_like=${filter}`;
     }
-    const { data, headers }: ApiResponse<unknown> = await Api.get(urlRelative);
+    const { data, headers }: ApiResponse<never> = await Api.get(urlRelative);
 
     if (data)
       return {
@@ -40,10 +40,10 @@ export const getAll = async (
 export const getById = async (
   path: string,
   id: string
-): Promise<unknown | Error> => {
+): Promise<never | Error> => {
   try {
     const urlRelative = `${path}/${id}`;
-    const { data }: ApiResponse<unknown> = await Api.get(urlRelative);
+    const { data }: ApiResponse<never> = await Api.get(urlRelative);
 
     if (data) return data;
 
@@ -58,11 +58,11 @@ export const getById = async (
 
 export const create = async (
   path: string,
-  data: Omit<Record<string, unknown>, "id">
-): Promise<unknown | Error> => {
+  data: Omit<Record<string, never>, "id">
+): Promise<never | Error> => {
   try {
     const urlRelative = path;
-    const response: ApiResponse<unknown> = await Api.post(urlRelative, data);
+    const response: ApiResponse<never> = await Api.post(urlRelative, data);
 
     if (response.data) return response.data;
 
@@ -78,11 +78,11 @@ export const create = async (
 export const updateById = async (
   path: string,
   id: string,
-  data: Omit<Record<string, unknown>, "id">
-): Promise<unknown | Error> => {
+  data: Omit<Record<string, never>, "id">
+): Promise<never | Error> => {
   try {
     const urlRelative = `${path}/${id}/`;
-    const response: ApiResponse<unknown> = await Api.put(urlRelative, data);
+    const response: ApiResponse<never> = await Api.put(urlRelative, data);
 
     if (response.data) return response.data;
 
@@ -106,7 +106,7 @@ export const deleteById = async (
       setTimeout(async () => {
         const response = await Api.delete(urlRelative);
         status = response.status;
-      }, 5000);
+      }, 0);
     }
     return status;
   } catch (error) {
