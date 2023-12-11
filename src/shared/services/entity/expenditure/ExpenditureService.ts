@@ -1,5 +1,3 @@
-const urlPath = "/expenditure/";
-
 export interface IExpenditureList {
   id: string;
   uuid: string;

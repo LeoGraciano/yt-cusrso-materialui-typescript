@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Avatar,
   Box,
@@ -12,8 +11,8 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useAppThemeContext, useDrawerContext } from "../../contexts";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 
 interface ISideBarProps {
   children: React.ReactNode;

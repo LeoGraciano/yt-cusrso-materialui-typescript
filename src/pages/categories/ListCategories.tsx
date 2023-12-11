@@ -1,5 +1,5 @@
 import { GridColDef, GridRowsProp } from "@mui/x-data-grid";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { AppTable, ListTool } from "../../shared/components";
 import { useDebounce } from "../../shared/hooks";
@@ -36,7 +36,7 @@ export const ListCategories: React.FC = () => {
         }
       });
     });
-  }, [search]);
+  }, [debounce, search]);
 
   return (
     <LayoutBasePage

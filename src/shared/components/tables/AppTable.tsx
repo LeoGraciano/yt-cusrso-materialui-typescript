@@ -1,6 +1,12 @@
 import { Typography } from "@material-ui/core";
 import { Box, LinearProgress } from "@mui/material";
-import { DataGrid, GridOverlay, ptBR } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColDef,
+  GridOverlay,
+  GridRowsProp,
+  ptBR,
+} from "@mui/x-data-grid";
 import { useState } from "react";
 import { Environment } from "../../environment";
 
@@ -12,8 +18,16 @@ const CustomNoRowsOverlay = () => (
   </GridOverlay>
 );
 
-export function AppTable({ rows, columns, isLoading = false }) {
-  const [pagination, setPagination] = useState({});
+export function AppTable({
+  rows,
+  columns,
+  isLoading = false,
+}: {
+  rows: GridRowsProp;
+  columns: GridColDef[];
+  isLoading: boolean;
+}) {
+  const [, setPagination] = useState({});
 
   const handlePaginationModelChange = (params: {
     page: number;
@@ -36,8 +50,8 @@ export function AppTable({ rows, columns, isLoading = false }) {
         <DataGrid
           rows={rows}
           columns={columns}
-          components={{
-            NoRowsOverlay: CustomNoRowsOverlay,
+          slots={{
+            noRowsOverlay: CustomNoRowsOverlay,
           }}
           onPaginationModelChange={handlePaginationModelChange}
           initialState={{

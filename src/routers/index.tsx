@@ -33,7 +33,7 @@ export default function AppRoutes() {
         path: CATEGORIES,
       },
     ]);
-  }, []);
+  }, [setDrawerOptions]);
 
   return (
     <Routes>

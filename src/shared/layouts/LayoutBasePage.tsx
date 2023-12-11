@@ -1,5 +1,3 @@
-import React from "react";
-import { Box } from "@mui/system";
 import {
   Icon,
   IconButton,
@@ -8,6 +6,8 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import { Box } from "@mui/system";
+
 import { useDrawerContext } from "../contexts";
 
 interface ILayoutBasePageProps {
